@@ -1,0 +1,41 @@
+{
+    "market" : {
+        "_id" : {
+            "index" : "not_analyzed",
+            "path" : "item_id"
+        },
+        "_source" : {
+            "enabled" : "true"
+        },
+        "_all" : {
+            "enabled" : "false"
+        },
+        "analyzer" : "common_analyzer",
+        "index_analyzer" : "common_analyzer",
+        "search_analyzer" : "common_analyzer",
+        "properties" : {
+            "unified_search" : {"type" : "string", "store" : "no", "index" : "analyzed", "omit_norms" : false, "index_options" : "offsets", "term_vector" : "with_positions_offsets", "include_in_all" : false},
+			"item_id" : {"type" : "long", "store" : "no", "index" : "not_analyzed", "index_options" : "docs", "ignore_malformed" : true, "include_in_all" : false},
+			"item_name" : {"type" : "string", "store" : "no", "index" : "analyzed", "omit_norms" : false, "index_options" : "offsets", "term_vector" : "with_positions_offsets", "include_in_all" : false},
+			"item_regdate" : {"type" : "long", "store" : "no", "index" : "not_analyzed", "index_options" : "docs", "ignore_malformed" : true, "include_in_all" : false},
+			"item_list_price" : {"type" : "long", "store" : "yes", "index" : "no", "ignore_malformed" : true, "include_in_all" : false},
+			"item_sales_price" : {"type" : "long", "store" : "no", "index" : "not_analyzed", "index_options" : "docs", "ignore_malformed" : true, "include_in_all" : false},
+			"item_delivery_flag" : {"type" : "boolean", "store" : "yes", "include_in_all" : false},
+			"item_delivery_price" : {"type" : "long", "store" : "yes", "index" : "no",  "ignore_malformed" : true, "include_in_all" : false},
+			"item_save_point" : {"type" : "long", "store" : "yes", "index" : "no",  "ignore_malformed" : true, "include_in_all" : false},
+			"cat_first_id" : {"type" : "string", "store" : "no", "index" : "not_analyzed", "omit_norms" : true, "index_options" : "docs", "include_in_all" : false},
+			"cat_first_name" : {"type" : "string", "store" : "yes", "index" : "no", "include_in_all" : false},
+			"cat_second_id" : {"type" : "string", "store" : "no", "index" : "not_analyzed", "omit_norms" : true, "index_options" : "docs", "include_in_all" : false},
+			"cat_second_name" : {"type" : "string", "store" : "yes", "index" : "no", "include_in_all" : false},
+			"cat_third_id" : {"type" : "string", "store" : "no", "index" : "not_analyzed", "omit_norms" : true, "index_options" : "docs", "include_in_all" : false},
+			"cat_third_name" : {"type" : "string", "store" : "yes", "index" : "no", "include_in_all" : false},
+			"brand_id" : {"type" : "long", "store" : "no", "index" : "not_analyzed", "index_options" : "docs", "ignore_malformed" : true, "include_in_all" : false},
+			"brand_name" : {"type" : "string", "store" : "yes", "index" : "no", "include_in_all" : false},
+			"seller_id" : {"type" : "string", "store" : "yes", "index" : "no", "include_in_all" : false},
+			"seller_name" : {"type" : "string", "store" : "yes", "index" : "no", "include_in_all" : false},
+			"item_sales_volume" : {"type" : "long", "store" : "no", "index" : "not_analyzed", "index_options" : "docs", "ignore_malformed" : true, "include_in_all" : false},
+			"item_review_score" : {"type" : "long", "store" : "no", "index" : "not_analyzed", "index_options" : "docs", "ignore_malformed" : true, "include_in_all" : false},
+			"item_review_count" : {"type" : "long", "store" : "no", "index" : "not_analyzed", "index_options" : "docs", "ignore_malformed" : true, "include_in_all" : false}
+        }
+    }
+}
