@@ -5,8 +5,8 @@
         "analysis" : {
             "analyzer" : {
                 "common_analyzer" : {
-                    "type" : "cjk",
-                    "filter" : ["lowercase", "trim"]
+                    "tokenizer" : "standard",
+                    "filter" : ["cjk_width", "lowercase", "trim", "english_stop"]
                 },
                 "patten_analyzer" : {
                     "type" : "custom",
@@ -29,6 +29,12 @@
                 "pattern_tokenizer" : {
                     "type" : "pattern",
                     "pattern" : ","
+                }
+            },
+            "filter": {
+                "english_stop": {
+                    "type":       "stop",
+                    "stopwords":  "_english_"
                 }
             }
         },

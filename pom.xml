@@ -13,7 +13,7 @@
 	<properties>
 		<!-- env -->
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.6</java.version>
+		<java.version>1.7</java.version>
 		
 		<!-- spring -->
 		<spring.version>4.0.1.RELEASE</spring.version>
@@ -23,7 +23,7 @@
 		<slf4j.version>1.6.2</slf4j.version>
 
 		<!-- elasticsearch -->
-		<elasticsearch.version>1.0.0</elasticsearch.version>
+		<elasticsearch.version>1.3.2</elasticsearch.version>
 
 		<!-- httpclient -->
 		<commons-httpclient-version>3.1</commons-httpclient-version>
@@ -38,7 +38,7 @@
 	</properties>
 
 	<dependencies>
-	<!-- spring core -->
+		<!-- spring core -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-core</artifactId>
@@ -56,7 +56,6 @@
 			<artifactId>jackson-mapper-asl</artifactId>
 			<version>${jackson.version}</version>
 		</dependency>
-
 
 		<!-- Logging -->
 		<dependency>

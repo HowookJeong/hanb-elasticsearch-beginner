@@ -10,7 +10,6 @@ import org.elasticsearch.action.bulk.BulkRequestBuilder;
 import org.elasticsearch.action.bulk.BulkResponse;
 import org.elasticsearch.action.index.IndexRequestBuilder;
 import org.elasticsearch.action.index.IndexResponse;
-import org.elasticsearch.action.support.broadcast.BroadcastOperationThreading;
 import org.elasticsearch.action.support.replication.ReplicationType;
 import org.elasticsearch.client.Client;
 import org.elasticsearch.client.transport.TransportClient;
@@ -55,6 +54,10 @@ public class IndexingTest {
 		
 		settings = ImmutableSettings
 				.settingsBuilder()
+				.put("cluster.name", "cluster_local")
+				.put("client.transport.sniff", true)
+				.put("network.tcp.blocking", false)
+				.put("client.transport.ping_timeout", "10s")
 				.build();
 		
 		client = buildClient(settings);
@@ -93,6 +96,10 @@ public class IndexingTest {
 		
 		settings = ImmutableSettings
 				.settingsBuilder()
+				.put("cluster.name", "elasticsearch")
+				.put("client.transport.sniff", true)
+				.put("network.tcp.blocking", false)
+				.put("client.transport.ping_timeout", "10s")
 				.build();
 		
 		client = buildClient(settings);
@@ -147,7 +154,6 @@ public class IndexingTest {
 						.flush(true)
 						.onlyExpungeDeletes(false)
 						.waitForMerge(true)
-						.operationThreading(BroadcastOperationThreading.THREAD_PER_SHARD)
 						.maxNumSegments(1))
 			.actionGet();
 	}
